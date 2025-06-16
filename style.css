@@ -1874,3 +1874,32 @@ iframe {
 .typing-indicator span {
     animation: typing 1.4s infinite ease-in-out;
 }
+.n8n-color { 
+    color: #29abe0; /* n8n.io brand color */
+}
+
+.workflow-item:nth-child(13) .workflow-img img {
+    padding: 15px; /* Match other platform logos */
+    object-fit: contain; /* Consistent with others */
+}
+/* n8n.io specific image styling */
+.workflow-item.n8n-platform .workflow-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(41, 171, 224, 0.05); /* subtle brand tint */
+}
+
+.workflow-item.n8n-platform .workflow-img img {
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+    padding: 15px;
+}
+
+/* Color for n8n.io only */
+.n8n-color { 
+    color: #29abe0;
+}
