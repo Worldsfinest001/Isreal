@@ -2182,3 +2182,100 @@ iframe {
     .logo-placeholder i { font-size: 1.3rem; }
     .logo-row { gap: 15px; }
 }
+/* ===== NEW: Schedule a Call Section ===== */
+.schedule-call {
+    padding: 80px 20px;
+    background: var(--card-bg);
+    text-align: center;
+    margin: 80px 10%;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.schedule-call::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(110, 69, 226, 0.03) 0%, transparent 60%);
+    animation: rotateGlow 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.schedule-call > * {
+    position: relative;
+    z-index: 1;
+}
+
+.schedule-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(110, 69, 226, 0.1);
+    margin-bottom: 25px;
+    border: 2px dashed var(--primary);
+    animation: pulseBorder 2s ease-in-out infinite;
+}
+
+@keyframes pulseBorder {
+    0%, 100% { transform: scale(1); border-color: var(--primary); }
+    50% { transform: scale(1.05); border-color: var(--accent); }
+}
+
+.schedule-icon-wrapper i {
+    font-size: 2.2rem;
+    color: var(--primary);
+}
+
+.schedule-call h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.schedule-call p {
+    max-width: 550px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.schedule-btn {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    background: var(--primary);
+    color: var(--light);
+    box-shadow: 0 8px 25px rgba(110, 69, 226, 0.4);
+}
+
+.schedule-btn i {
+    margin-right: 10px;
+}
+
+.schedule-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(110, 69, 226, 0.6);
+}
+
+@media (max-width: 768px) {
+    .schedule-call { margin: 40px 5%; padding: 50px 15px; }
+    .schedule-call h2 { font-size: 2rem; }
+}
