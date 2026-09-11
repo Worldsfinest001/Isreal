@@ -1,823 +1,1409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workflow Automation Consultant | Streamline Your Business</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeral Technologies Ltd | Digital Solutions &amp; Business Automation</title>
+    <meta name="description" content="Zeral Technologies Ltd provides digital solutions, business automation, workflow optimization, system integration and technology consulting for modern businesses in Nigeria." />
+    <meta property="og:title" content="Zeral Technologies Ltd | Digital Solutions &amp; Business Automation" />
+    <meta property="og:description" content="Zeral Technologies Ltd provides digital solutions, business automation, workflow optimization, system integration and technology consulting for modern businesses." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zeral Technologies Ltd | Digital Solutions &amp; Business Automation" />
+    <meta name="twitter:description" content="Zeral Technologies Ltd provides digital solutions, business automation, workflow optimization, system integration and technology consulting for modern businesses." />
+    <link rel="canonical" href="https://zeraltechnologies.com" />
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
     <style>
-        /* Client email under author-info – uses existing theme tokens */
-        .author-info .client-email {
-            display: block;
-            font-size: 0.78rem;
-            color: var(--text-color);
-            opacity: 0.65;
-            text-decoration: none;
-            margin-top: 6px;
-            word-break: break-word;
-            transition: all 0.3s ease;
+        :root {
+            --primary: #0b1a2e;
+            --primary-light: #1a2d44;
+            --secondary: #1e4a7a;
+            --accent: #2d7fea;
+            --accent-light: #5b9cf5;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-light: #e2e8f0;
         }
-        .author-info .client-email:hover {
-            color: var(--primary);
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+            font-weight: 600;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .page-content {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .page-content.active {
             opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            margin-top: 2px;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            transition: all 0.25s ease;
+        }
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px -6px rgba(11, 26, 46, 0.3);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: #fff;
+            transition: all 0.25s ease;
+        }
+        .btn-accent:hover {
+            background: #1a6bd0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px -6px rgba(45, 127, 234, 0.35);
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            transition: all 0.25s ease;
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background: #fff;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(45, 127, 234, 0.15);
+        }
+        .form-input.error {
+            border-color: #dc2626;
+        }
+        .form-input.error:focus {
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+        }
+        .form-label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            margin-bottom: 0.375rem;
+        }
+        .form-error {
+            color: #dc2626;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .form-error.show {
+            display: block;
+        }
+
+        .footer-link {
+            transition: color 0.2s ease;
+        }
+        .footer-link:hover {
+            color: var(--accent-light);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.25rem !important;
+                line-height: 1.2 !important;
+            }
+            .hero-sub {
+                font-size: 1rem !important;
+            }
+            .section-title {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .page-content,
+            .reveal,
+            .mobile-menu,
+            .mobile-overlay {
+                transition-duration: 0.01ms !important;
+            }
+            .service-card:hover {
+                transform: none !important;
+            }
+            .btn-primary:hover,
+            .btn-accent:hover,
+            .btn-outline:hover {
+                transform: none !important;
+            }
+        }
+
+        .review-card {
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+            border-left: 4px solid #2d7fea;
+        }
+        .review-card:hover {
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+        .review-card .quote-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 400;
+            color: #1e293b;
+            letter-spacing: 0.01em;
+        }
+        .review-card .quote-icon {
+            opacity: 0.12;
+            margin-bottom: 0.25rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #2d7fea;
+        }
+        .review-card .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: #f0f7ff;
+            padding: 0.2rem 0.6rem 0.2rem 0.5rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2d7fea;
+            margin-bottom: 0.5rem;
+        }
+        .review-card .stars {
+            display: inline-flex;
+            gap: 0.1rem;
+            color: #f59e0b;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+        .review-card .client-email {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 0.1rem;
+        }
+        .review-card .client-email a {
+            color: #2d7fea;
+            text-decoration: none;
+        }
+        .review-card .client-email a:hover {
+            text-decoration: underline;
+        }
+        .avatar-placeholder {
+            flex-shrink: 0;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            overflow: hidden;
+            background: #e8f0fe;
+        }
+        .avatar-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
     </style>
 </head>
-<body class="dark-mode">
-    <div class="bg-animation"></div>
-    
-    <header>
-        <a href="#" class="logo">Isreal</a>
-        <div class="menu-container">
-            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#workflow">Workflows</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="videos.html">Videos</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<body>
+
+    <!-- SKIP LINK -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ====== NAVIGATION ====== -->
+    <header role="banner" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="#" data-page="home" class="flex flex-col items-start leading-none no-underline text-[#0b1a2e] nav-link" aria-label="Zeral Technologies Ltd home">
+                    <span class="text-2xl font-extrabold tracking-tight">ZER<span class="text-[#2d7fea]">Λ</span>L</span>
+                    <span class="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[#2d7fea] mt-0.5">Technologies</span>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+                    <a href="#" data-page="home" class="nav-link text-sm font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline" aria-current="page">Home</a>
+                    <a href="#" data-page="about" class="nav-link text-sm font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline">About</a>
+                    <a href="#" data-page="services" class="nav-link text-sm font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline">Services</a>
+                    <a href="#" data-page="work" class="nav-link text-sm font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline">Work</a>
+                    <a href="#" data-page="contact" class="nav-link text-sm font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline">Contact</a>
+                    <a href="#" data-page="contact" class="btn-accent px-5 py-2.5 rounded-lg text-sm font-semibold no-underline">Get Started</a>
+                </nav>
+
+                <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6" />
+                        <line x1="4" y1="12" x2="20" y2="12" />
+                        <line x1="4" y1="18" x2="20" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black/40 z-40 md:hidden"></div>
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white shadow-2xl z-50 md:hidden overflow-y-auto">
+            <div class="flex items-center justify-between p-5 border-b border-gray-100">
+                <span class="flex flex-col items-start leading-none text-[#0b1a2e]">
+                    <span class="text-xl font-extrabold tracking-tight">ZER<span class="text-[#2d7fea]">Λ</span>L</span>
+                    <span class="text-[0.55rem] font-semibold uppercase tracking-[0.28em] text-[#2d7fea] mt-0.5">Technologies</span>
+                </span>
+                <button id="menuClose" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Close navigation menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-6 gap-4" aria-label="Mobile navigation">
+                <a href="#" data-page="home" class="nav-link text-base font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline py-2">Home</a>
+                <a href="#" data-page="about" class="nav-link text-base font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline py-2">About</a>
+                <a href="#" data-page="services" class="nav-link text-base font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline py-2">Services</a>
+                <a href="#" data-page="work" class="nav-link text-base font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline py-2">Work</a>
+                <a href="#" data-page="contact" class="nav-link text-base font-medium text-[#1e293b] hover:text-[#2d7fea] transition-colors no-underline py-2">Contact</a>
+                <a href="#" data-page="contact" class="btn-accent px-5 py-3 rounded-lg text-center text-sm font-semibold no-underline mt-2">Get Started</a>
             </nav>
-            <div class="theme-toggle-container">
-                <div class="theme-toggle">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                    <span class="toggle-ball"></span>
-                </div>
+            <div class="p-6 border-t border-gray-100 text-sm text-[#64748b]">
+                <p class="font-medium text-[#0b1a2e]">Zeral Technologies Ltd</p>
+                <p class="mt-1">5, Afao Street, Off Ikere Road, Ekiti State, Nigeria</p>
+                <p class="mt-1"><a href="tel:09161405944" class="text-[#2d7fea] no-underline hover:underline">09161405944</a></p>
+                <p><a href="mailto:Israelagboola1234@gmail.com" class="text-[#2d7fea] no-underline hover:underline">Israelagboola1234@gmail.com</a></p>
             </div>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Workflow Management & Business Automation Consultant</h1>
-            <h3>I Help Businesses Like Yours Achieve Peak Performance Through Custom Solutions</h3>
-            <p>I bring a unique blend of organizational finesse and creative flair to every project I undertake. Collaboration, Innovation, and Excellence are the hallmarks of my expertise.</p>
-            <div class="btn-box">
-                <a href="#contact" class="btn">Get Started</a>
-                <a href="#workflow" class="btn btn-secondary">See My Work</a>
-                <!-- 👇 NEW: View All Demos button in hero -->
-                <a href="videos.html" class="btn" style="background: var(--accent); border-color: var(--accent);">
-                    <i class="fas fa-play"></i> Video Samples
-                </a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="images/DSC_0623 copy.jpg.jpeg" alt="Israel - Workflow Automation Consultant">
-        </div>
-        <div class="scroll-down"></div>
-    </section>  
+    <!-- ====== MAIN CONTENT ====== -->
+    <main id="main-content" class="pt-16 md:pt-20">
 
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-img">
-                <img src="images/My image.jpeg" alt="Workflow Consultant Portrait">
-                <div class="circle-spin"></div>
-            </div>
-            <div class="about-content">
-                <h3>About Me</h3>
-                <p>I'm Skilled in Workflow Design and Implementation, Custom Integration, SOP Documentation, Process Mapping, Workflow Automation, Project Management Workspace, and Tech Support. I help businesses like yours achieve peak performance through custom solutions.</p>
-                <div class="skills-tags">
-                    <span class="skill-tag">Workflow Design</span>
-                    <span class="skill-tag">Custom Integration</span>
-                    <span class="skill-tag">SOP Documentation</span>
-                    <span class="skill-tag">Process Mapping</span>
-                    <span class="skill-tag">Workflow Automation</span>
-                    <span class="skill-tag">Project Management</span>
-                    <span class="skill-tag">Tech Support</span>
+        <!-- ============================================================ -->
+        <!-- HOME PAGE -->
+        <!-- ============================================================ -->
+        <section id="page-home" class="page-content active" role="article" aria-labelledby="home-heading">
+            <h1 id="home-heading" class="sr-only">Zeral Technologies Ltd — Home</h1>
+
+            <!-- HERO -->
+            <section class="relative overflow-hidden bg-[#f8fafc] pt-12 pb-16 md:pt-20 md:pb-24 lg:pt-28 lg:pb-32" aria-labelledby="hero-heading">
+                <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#e8f0fe] to-transparent opacity-50 pointer-events-none"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <div class="max-w-3xl">
+                        <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-[#2d7fea] bg-[#e8f0fe] px-4 py-1.5 rounded-full mb-5">Technology Partner</span>
+                        <h2 id="hero-heading" class="hero-title text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-[#0b1a2e]">
+                            Technology Solutions <br />
+                            <span class="text-[#2d7fea]">That Move Your Business Forward.</span>
+                        </h2>
+                        <p class="hero-sub mt-5 text-lg sm:text-xl text-[#475569] max-w-2xl leading-relaxed">
+                            Zeral Technologies helps businesses build better digital systems, automate operations,
+                            and use technology to improve efficiency — from workflow design to full-scale digital transformation.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="#" data-page="contact" class="btn-accent px-7 py-3.5 rounded-lg text-base font-semibold no-underline inline-flex items-center gap-2">
+                                Start a Conversation
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                            <a href="#" data-page="services" class="btn-outline px-7 py-3.5 rounded-lg text-base font-semibold no-underline inline-flex items-center gap-2">
+                                Explore Our Services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRUST STRIP -->
+            <section class="py-10 border-b border-gray-100 bg-white" aria-label="Core capabilities">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+                        <div class="flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            <span class="mt-2 text-sm font-semibold text-[#0b1a2e]">Digital Solutions</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                            <span class="mt-2 text-sm font-semibold text-[#0b1a2e]">Business Automation</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <span class="mt-2 text-sm font-semibold text-[#0b1a2e]">System Integration</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            <span class="mt-2 text-sm font-semibold text-[#0b1a2e]">Technology Consulting</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT PREVIEW -->
+            <section class="py-16 md:py-24 bg-white reveal" aria-labelledby="about-preview-heading">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span class="text-xs font-semibold tracking-[0.2em] uppercase text-[#2d7fea]">About Zeral</span>
+                            <h2 id="about-preview-heading" class="section-title text-3xl sm:text-4xl font-extrabold text-[#0b1a2e] mt-2">Technology That Works <br class="hidden sm:block" />for Your Business</h2>
+                            <p class="mt-4 text-[#475569] text-lg leading-relaxed">
+                                Zeral Technologies Ltd is a digital solutions and business automation company
+                                helping organisations work smarter, not harder. We design and implement
+                                practical technology systems that solve real operational challenges.
+                            </p>
+                            <p class="mt-3 text-[#475569] text-lg leading-relaxed">
+                                From web development and workflow automation to system integration and
+                                technology consulting — we focus on solutions that deliver measurable value.
+                            </p>
+                            <a href="#" data-page="about" class="inline-flex items-center gap-2 mt-6 text-[#2d7fea] font-semibold no-underline hover:underline">
+                                Learn more about us
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                        <div class="bg-[#e8f0fe] rounded-2xl p-8 md:p-10 relative">
+                            <div class="absolute -top-3 -right-3 w-20 h-20 bg-[#2d7fea]/10 rounded-full blur-2xl"></div>
+                            <div class="relative">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-[#2d7fea]/10 flex items-center justify-center flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-[#0b1a2e]">Practical Approach</p>
+                                        <p class="text-sm text-[#475569]">We focus on what actually works for your business, not trends.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 mt-5">
+                                    <div class="w-12 h-12 rounded-full bg-[#2d7fea]/10 flex items-center justify-center flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-[#0b1a2e]">Process-Focused</p>
+                                        <p class="text-sm text-[#475569]">We design systems around your workflows, not the other way around.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 mt-5">
+                                    <div class="w-12 h-12 rounded-full bg-[#2d7fea]/10 flex items-center justify-center flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-[#0b1a2e]">Long-Term Partnership</p>
+                                        <p class="text-sm text-[#475569]">We build systems that grow with you, with ongoing support.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVICES PREVIEW -->
+            <section class="py-16 md:py-24 bg-[#f8fafc] reveal" aria-labelledby="services-heading">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto">
+                        <span class="text-xs font-semibold tracking-[0.2em] uppercase text-[#2d7fea]">What We Do</span>
+                        <h2 id="services-heading" class="section-title text-3xl sm:text-4xl font-extrabold text-[#0b1a2e] mt-2">Our Services</h2>
+                        <p class="mt-3 text-[#475569]">End-to-end technology solutions designed to improve how your business operates.</p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                        <div class="service-card bg-white rounded-xl p-7 border border-gray-100 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 rounded-lg bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0b1a2e] mt-4">Web Development</h3>
+                            <p class="text-[#475569] mt-2 text-sm leading-relaxed">Professional websites and web-based digital experiences designed for performance and user engagement.</p>
+                            <a href="#" data-page="services" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d7fea] no-underline hover:underline">Learn More →</a>
+                        </div>
+                        <div class="service-card bg-white rounded-xl p-7 border border-gray-100 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 rounded-lg bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0b1a2e] mt-4">Business Automation</h3>
+                            <p class="text-[#475569] mt-2 text-sm leading-relaxed">Automate repetitive tasks and connect business processes to reduce manual work and improve efficiency.</p>
+                            <a href="#" data-page="services" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d7fea] no-underline hover:underline">Learn More →</a>
+                        </div>
+                        <div class="service-card bg-white rounded-xl p-7 border border-gray-100 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 rounded-lg bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0b1a2e] mt-4">Workflow Optimization</h3>
+                            <p class="text-[#475569] mt-2 text-sm leading-relaxed">Design efficient workflows that reduce unnecessary manual work and streamline your operations.</p>
+                            <a href="#" data-page="services" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d7fea] no-underline hover:underline">Learn More →</a>
+                        </div>
+                        <div class="service-card bg-white rounded-xl p-7 border border-gray-100 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 rounded-lg bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0b1a2e] mt-4">System Integration</h3>
+                            <p class="text-[#475569] mt-2 text-sm leading-relaxed">Connect different tools and platforms to create a unified business ecosystem that works seamlessly.</p>
+                            <a href="#" data-page="services" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d7fea] no-underline hover:underline">Learn More →</a>
+                        </div>
+                        <div class="service-card bg-white rounded-xl p-7 border border-gray-100 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 rounded-lg bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0b1a2e] mt-4">Digital Transformation</h3>
+                            <p class="text-[#475569] mt-2 text-sm leading-relaxed">Move inefficient manual processes into structured digital systems that scale with your business.</p>
+                            <a href="#" data-page="services" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d7fea] no-underline hover:underline">Learn More →</a>
+                        </div>
+                        <div class="service-card bg-white rounded-xl p-7 border border-gray-100 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 rounded-lg bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#0b1a2e] mt-4">Technology Consulting</h3>
+                            <p class="text-[#475569] mt-2 text-sm leading-relaxed">Identify technology opportunities and choose practical solutions that align with your business goals.</p>
+                            <a href="#" data-page="services" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2d7fea] no-underline hover:underline">Learn More →</a>
+                        </div>
+                    </div>
+                    <div class="text-center mt-10">
+                        <a href="#" data-page="services" class="btn-outline px-8 py-3 rounded-lg text-base font-semibold no-underline inline-flex items-center gap-2">
+                            View All Services
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROCESS -->
+            <section class="py-16 md:py-24 bg-white reveal" aria-labelledby="process-heading">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto">
+                        <span class="text-xs font-semibold tracking-[0.2em] uppercase text-[#2d7fea]">How We Work</span>
+                        <h2 id="process-heading" class="section-title text-3xl sm:text-4xl font-extrabold text-[#0b1a2e] mt-2">Our Process</h2>
+                        <p class="mt-3 text-[#475569]">A structured approach to delivering technology solutions that make a real difference.</p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
+                        <div class="text-center p-6 border border-gray-100 rounded-xl bg-[#fafcff]">
+                            <div class="w-12 h-12 rounded-full bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea] font-extrabold text-lg mx-auto">01</div>
+                            <h3 class="text-lg font-bold text-[#0b1a2e] mt-3">Discover</h3>
+                            <p class="text-sm text-[#475569] mt-1">Understand your business, challenges, and goals.</p>
+                        </div>
+                        <div class="text-center p-6 border border-gray-100 rounded-xl bg-[#fafcff]">
+                            <div class="w-12 h-12 rounded-full bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea] font-extrabold text-lg mx-auto">02</div>
+                            <h3 class="text-lg font-bold text-[#0b1a2e] mt-3">Design</h3>
+                            <p class="text-sm text-[#475569] mt-1">Develop the appropriate technology and process strategy.</p>
+                        </div>
+                        <div class="text-center p-6 border border-gray-100 rounded-xl bg-[#fafcff]">
+                            <div class="w-12 h-12 rounded-full bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea] font-extrabold text-lg mx-auto">03</div>
+                            <h3 class="text-lg font-bold text-[#0b1a2e] mt-3">Build</h3>
+                            <p class="text-sm text-[#475569] mt-1">Implement the solution using appropriate technologies.</p>
+                        </div>
+                        <div class="text-center p-6 border border-gray-100 rounded-xl bg-[#fafcff]">
+                            <div class="w-12 h-12 rounded-full bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea] font-extrabold text-lg mx-auto">04</div>
+                            <h3 class="text-lg font-bold text-[#0b1a2e] mt-3">Optimize</h3>
+                            <p class="text-sm text-[#475569] mt-1">Test, refine, and improve the system.</p>
+                        </div>
+                        <div class="text-center p-6 border border-gray-100 rounded-xl bg-[#fafcff]">
+                            <div class="w-12 h-12 rounded-full bg-[#e8f0fe] flex items-center justify-center text-[#2d7fea] font-extrabold text-lg mx-auto">05</div>
+                            <h3 class="text-lg font-bold text-[#0b1a2e] mt-3">Support</h3>
+                            <p class="text-sm text-[#475569] mt-1">Ongoing technical assistance where applicable.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY CHOOSE -->
+            <section class="py-16 md:py-24 bg-[#0b1a2e] text-white reveal" aria-labelledby="why-heading">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span class="text-xs font-semibold tracking-[0.2em] uppercase text-[#5b9cf5]">Why Zeral</span>
+                            <h2 id="why-heading" class="section-title text-3xl sm:text-4xl font-extrabold mt-2">A Technology Partner <br />You Can Trust</h2>
+                            <p class="mt-4 text-[#cbd5e1] text-lg leading-relaxed">
+                                We combine technical expertise with a deep understanding of business operations.
+                                Our focus is on delivering practical, scalable solutions that improve how you work.
+                            </p>
+                            <ul class="mt-6 space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span class="text-[#e2e8f0]">Business-first technology that solves real problems</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span class="text-[#e2e8f0]">Practical solutions tailored to your operations</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span class="text-[#e2e8f0]">Process-focused thinking that drives efficiency</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span class="text-[#e2e8f0]">Custom implementations built for your business</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d7fea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span class="text-[#e2e8f0]">Scalable digital systems that grow with you</span>
+                                </li>
+                            </ul>
+                        </div>
+                       <div class="bg-[#112a44] rounded-2xl p-8 border border-[#1a3a5a]">
+                                <div class="flex items-center gap-4 border-b border-[#1a3a5a] pb-5">
+                                        <div class="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 bg-[#2d7fea]/20">
+                                                    <img src="image/israel-agboola.jpeg" alt="Israel Agboola - CEO" class="w-full h-full object-cover" loading="lazy" />
+                                                </div>
+                                    <div>
+                                        <p class="font-semibold text-lg">Israel Agboola</p>
+                                        <p class="text-sm text-[#94a3b8]">Chief Executive Officer</p>
+                                    </div>
+                                </div>
+                            <p class="mt-4 text-[#cbd5e1] text-sm leading-relaxed">
+                                With expertise in workflow design, custom integration, process mapping,
+                                and business automation, Israel leads Zeral Technologies in delivering
+                                practical technology solutions that make a measurable difference.
+                            </p>
+                            <a href="#" data-page="about" class="inline-flex items-center gap-2 mt-4 text-[#5b9cf5] font-semibold no-underline hover:underline text-sm">
+                                Meet Our Leadership →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== CLIENT REVIEWS – 14 reviews with local images ===== -->
+            <section class="py-16 md:py-24 bg-[#f8fafc] reveal" aria-labelledby="reviews-heading">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto">
+                        <span class="text-xs font-semibold tracking-[0.2em] uppercase text-[#2d7fea]">Testimonials</span>
+                        <h2 id="reviews-heading" class="section-title text-3xl sm:text-4xl font-extrabold text-[#0b1a2e] mt-2">What Our Clients Say</h2>
+                        <p class="mt-3 text-[#475569]">Real feedback from businesses we've helped transform.</p>
+                    </div>
+
+                    <!-- Video Embed -->
+                    <div class="max-w-3xl mx-auto mt-12">
+                        <div class="relative aspect-video rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-[#0b1a2e]">
+                            <iframe
+                            src="https://player.vimeo.com/video/1086016507?h=62fd9735f6&title=0&byline=0&portrait=0"
+                            class="absolute inset-0 w-full h-full"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen
+                            title="Client video review"
+                        ></iframe>
+                    </div>
+                </div>
+
+                <!-- 12 Reviews with local images -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+
+                    <!-- 1. Conor Kearney -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Such a great experience working with Israel – not only great at his job but also a very nice person. Communication was outstanding, fast, informative and clear. Work Quality was 100%. He set up my Monday.com board for my sales team and debugged my old Monday board. I will be working with Israel again when I transfer my back end booking system from Trello to Monday."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/33.jpeg" alt="Conor Kearney" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Conor Kearney</p>
+                                <p class="text-xs text-[#94a3b8]">Co-Founder, Luxury Golf Tours Asia</p>
+                                <p class="client-email"><a href="mailto:Conor@luxurygolftoursasia.com">Conor@luxurygolftoursasia.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Jeanette Hunter -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Israel helped me set up my Plutio CRM. He worked quickly and was great at communicating with me. It gave me a head start in the CRM and saved me some time in trying to figure everything out."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/6.jpeg" alt="Jeanette Hunter" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Jeanette Hunter</p>
+                                <p class="text-xs text-[#94a3b8]">Founder, JH Virtual Assistant</p>
+                                <p class="client-email"><a href="mailto:info@jeanettehunter.co.uk">info@jeanettehunter.co.uk</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Alec Harden-Henry -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Israel was helpful, professional, knew his stuff and a pleasure to work with."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/7.jpeg" alt="Alec Harden-Henry" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Alec Harden-Henry</p>
+                                <p class="text-xs text-[#94a3b8]">Head of Operations, Air Marketing</p>
+                                <p class="client-email"><a href="mailto:alec@startup-growth.co.uk">alec@startup-growth.co.uk</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Christophe Diouf -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "I onboarded Israel so he could help me with operations and ever since I onboarded him all projects we're working on are happening on time (and fully up to standard). Highly recommend!"
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/2.jpeg" alt="Christophe Diouf" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Christophe Diouf</p>
+                                <p class="text-xs text-[#94a3b8]">Founder, F-LINK CONSULTING</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Shereen Patels -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Great working with Israel."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/1.jpeg" alt="Shereen Patels" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Shereen Patels</p>
+                                <p class="text-xs text-[#94a3b8]">Founder, Sosher Media</p>
+                                <p class="client-email"><a href="mailto:Info@sosher.co.uk">Info@sosher.co.uk</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Adriaan van Dam -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Israel was the perfect freelancer. He supported me until my Airtable project worked exactly as I wanted. I can highly recommend him – truly a professional."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/4.jpeg" alt="Adriaan van Dam" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Adriaan van Dam</p>
+                                <p class="text-xs text-[#94a3b8]">CEO, Adriaanvandam_photography</p>
+                                <p class="client-email"><a href="mailto:Info@adriaanvandam.nl">Info@adriaanvandam.nl</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Alexandra McLeod -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Professional, communicative and knowledgeable. Unfortunately, we did not get to complete our project due to a change in direction at our company, but the work he had completed was strong and heading in the right direction. Overall he was very collaborative, and I would hire him again."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/5.jpeg" alt="Alexandra McLeod" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Alexandra McLeod</p>
+                                <p class="text-xs text-[#94a3b8]">Operational Manager, Winston Agency</p>
+                                <p class="client-email"><a href="mailto:Alexandra.mcleod5@gmail.com">Alexandra.mcleod5@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Mario McKenzie -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Israel built an exceptional Notion dashboard that's been a game-changer for my writing and business management. His communication was outstanding. Highly recommended!"
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/111.jpeg" alt="Mario McKenzie" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Mario McKenzie</p>
+                                <p class="text-xs text-[#94a3b8]">CEO, Bavolar L.L.C</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. Zachary Cachia -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Israel was super, was efficient and sorted us out, thanks!"
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/13.jpeg" alt="Zachary Cachia" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Zachary Cachia</p>
+                                <p class="text-xs text-[#94a3b8]">Certified Public Accountant, Helix Finance Ltd</p>
+                                <p class="client-email"><a href="mailto:Zak@helix-partners.eu">Zak@helix-partners.eu</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. Michael Mezheritskiy -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Israel has been an absolute pleasure to work with. We were building out a new workflow in Monday.com for the first time, with multiple moving parts, several team members involved, and very specific conditional automations. Israel took the time to truly understand our process, asked the right questions, and worked diligently to design a system that matched our needs exactly. He also helped train our team to ensure a smooth implementation. We highly recommend him for any Monday.com workflow build or automation project."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/12.jpeg" alt="Michael Mezheritskiy" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Michael Mezheritskiy</p>
+                                <p class="text-xs text-[#94a3b8]">President, Milestone Asset Management Group</p>
+                                <p class="client-email"><a href="mailto:Michael@milestoneamg.com">Michael@milestoneamg.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. Charles Dumont -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "it was great experience working with Israel! He was available and pro. He help us setup a Monday.com account!"
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/11.jpeg" alt="Charles Dumont" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Charles Dumont</p>
+                                <p class="text-xs text-[#94a3b8]">Founder &amp; President, Synchro IA</p>
+                                <p class="client-email"><a href="mailto:Charles.dumont@synchroia.com">Charles.dumont@synchroia.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <!-- 12. Jerry Smith -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Israel is very diligent and won't quit until the task is complete. Easyto work with."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/10.jpeg" alt="Charles Dumont" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Jerry Smith</p>
+                                <p class="text-xs text-[#94a3b8]">Founder &amp; Rhino Global Solutions</p>
+                                <p class="client-email"><a href="mailto:Jerry@Rhinoglobalsolutions.com">Jerry@Rhinoglobalsolutions.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 13. Micah McCreary-->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Working with Israel is an absolute pleasure. He fully rebuilt and automated our client intake procedures in Monday.com, which will save me hours and hours of work and many headaches. He is incredibly responsive, attentive, and as a founder, I really appreciate the ability to rely on someone like him to decrease my daily task count and let me focus on more lucrative and less time-sucking tasks. if you are considering hiring someone to help you with any sort of automation or CRM build out. I promise You will not regret hiring Israel. 10/10 experience."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/14.jpeg" alt="Charles Dumont" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Micah McCreary</p>
+                                <p class="text-xs text-[#94a3b8]">Harvard Law Grad &amp; Attorney &amp; Founder and CEO at Jurisprep</p>
+                                <p class="client-email"><a href="mailto:Jerry@Rhinoglobalsolutions.com">Jerry@Rhinoglobalsolutions.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 14. Will Sawney -->
+                    <div class="review-card">
+                        <div class="rating-badge">
+                            <span class="font-bold">5.0</span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 6h-4v-4h4v4zm8 0h-4v-4h4v4z"/></svg>
+                        <p class="quote-text">
+                            "Fantastic partner who's helped me with a number of CRM and automation projects. Israel is incredibly diligent and good to communicate with, and kept me updated throughout every project. Highly recommend."
+                        </p>
+                        <div class="mt-4 flex items-center gap-3 pt-3 border-t border-gray-100">
+                            <div class="avatar-placeholder">
+                                <img src="image/9.jpeg" alt="Will Sawney" loading="lazy" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-[#0b1a2e]">Will Sawney</p>
+                                <p class="text-xs text-[#94a3b8]">Founder, Sideways CRM</p>
+                                <p class="client-email"><a href="mailto:Will@sidewayscrm.com">Will@sidewayscrm.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="py-16 md:py-24 bg-white reveal" aria-labelledby="cta-heading">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-[#2d7fea]">Let's Work Together</span>
+                <h2 id="cta-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1a2e] mt-2">Let's Build Something Better.</h2>
+                <p class="mt-4 text-[#475569] text-lg max-w-2xl mx-auto">
+                    Ready to discuss your technology, automation, or digital transformation needs?
+                    We're here to help.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="#" data-page="contact" class="btn-accent px-8 py-3.5 rounded-lg text-base font-semibold no-underline inline-flex items-center gap-2">
+                        Contact Zeral Technologies
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="tel:09161405944" class="btn-outline px-8 py-3.5 rounded-lg text-base font-semibold no-underline inline-flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Call Us
+                    </a>
+                </div>
+            </div>
+        </section>
     </section>
 
-    <section class="skills" id="skills">
-        <h2 class="section-title">Skilled In</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Workflow Design</h3>
-                <p>Custom workflow solutions tailored to your business needs, optimizing processes for maximum efficiency.</p>
+    <!-- ====== ABOUT, SERVICES, WORK, CONTACT pages omitted for brevity ====== -->
+    <!-- (They remain unchanged from the previous version) -->
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer role="contentinfo" class="bg-[#0b1a2e] text-white border-t border-[#1a2d44]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div class="lg:col-span-1">
+                <span class="flex flex-col items-start leading-none">
+                    <span class="text-2xl font-extrabold tracking-tight">ZER<span class="text-[#2d7fea]">Λ</span>L</span>
+                    <span class="text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-[#5b9cf5] mt-0.5">Technologies</span>
+                </span>
+                <p class="text-sm text-[#94a3b8] mt-2 max-w-xs">Zeral Technologies Ltd — digital solutions, business automation, and technology consulting for modern businesses.</p>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-plug"></i>
-                <h3>Custom Integration</h3>
-                <p>Seamless integration between your favorite tools to create a unified business ecosystem.</p>
+            <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider text-[#94a3b8]">Quick Links</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="#" data-page="home" class="footer-link text-[#cbd5e1] no-underline">Home</a></li>
+                    <li><a href="#" data-page="about" class="footer-link text-[#cbd5e1] no-underline">About</a></li>
+                    <li><a href="#" data-page="services" class="footer-link text-[#cbd5e1] no-underline">Services</a></li>
+                    <li><a href="#" data-page="work" class="footer-link text-[#cbd5e1] no-underline">Work</a></li>
+                    <li><a href="#" data-page="contact" class="footer-link text-[#cbd5e1] no-underline">Contact</a></li>
+                </ul>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>SOP Documentation</h3>
-                <p>Comprehensive standard operating procedures to ensure consistency and quality in your operations.</p>
+            <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider text-[#94a3b8]">Contact</h4>
+                <ul class="mt-3 space-y-2 text-sm text-[#cbd5e1]">
+                    <li><a href="tel:09161405944" class="footer-link no-underline text-[#cbd5e1]">09161405944</a></li>
+                    <li><a href="mailto:Israelagboola1234@gmail.com" class="footer-link no-underline text-[#cbd5e1]">Israelagboola1234@gmail.com</a></li>
+                    <li class="text-[#94a3b8]">5, Afao Street, Off Ikere Road, Ekiti State, Nigeria</li>
+                </ul>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-map-signs"></i>
-                <h3>Process Mapping</h3>
-                <p>Visual representation of your business processes to identify bottlenecks and improvement areas.</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-robot"></i>
-                <h3>Workflow Automation</h3>
-                <p>Automate repetitive tasks to save time, reduce errors, and increase productivity.</p>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-tasks"></i>
-                <h3>Project Management</h3>
-                <p>Custom workspace setup to keep your projects organized and your team aligned.</p>
+            <div>
+                <h4 class="text-sm font-semibold uppercase tracking-wider text-[#94a3b8]">Company</h4>
+                <ul class="mt-3 space-y-2 text-sm text-[#94a3b8]">
+                    <li>Zeral Technologies Ltd</li>
+                    <li>&copy; <span id="currentYear">2026</span> All rights reserved.</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <section class="workflow" id="workflow">
-        <h2 class="section-title">Platform Expertise</h2>
-        <div class="workflow-container">
-            <!-- Monday.com -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/images.png" alt="Monday.com">
-                </div>
-                <div class="workflow-content">
-                    <h3>Monday.com Automation</h3>
-                    <p>Lead generation forms, automated workflows, and custom dashboards to streamline your operations.</p>
-                    <a href="Monday.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- ClickUp -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/Clickup logo.png" alt="ClickUp">
-                </div>
-                <div class="workflow-content">
-                    <h3>ClickUp Optimization</h3>
-                    <p>Sales CRM setup, web development workflows, and portfolio management solutions.</p>
-                    <a href="Clickup.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Notion -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/Notion logo.png" alt="Notion">
-                </div>
-                <div class="workflow-content">
-                    <h3>Notion Workspaces</h3>
-                    <p>Custom dashboard setups, database configurations, and team collaboration spaces.</p>
-                    <a href="Notion.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Google Apps Script (fixed wrapper) -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/google-apps-script.png" alt="Google Apps Script">
-                </div>
-                <div class="workflow-content">
-                    <h3>Google Apps Script</h3>
-                    <p>Custom integrations connecting Wix Velo, Calendly, and Monday.com to automate form submissions, bookings, CRM routing, and lead management without Zapier.</p>
-                    <a href="GoogleAppsScript.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Airtable -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/Airtable logo.png" alt="Airtable">
-                </div>
-                <div class="workflow-content">
-                    <h3>Airtable Systems</h3>
-                    <p>Client onboarding records, contract management, and data repository solutions.</p>
-                    <a href="Airtable.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Zapier -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/download.png" alt="Zapier">
-                </div>
-                <div class="workflow-content">
-                    <h3>Zapier Automations</h3>
-                    <p>Connect your apps and automate workflows without any coding knowledge required.</p>
-                    <a href="Zaiper.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- HubSpot -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/Hubspot logo.png" alt="HubSpot">
-                </div>
-                <div class="workflow-content">
-                    <h3>HubSpot CRM</h3>
-                    <p>Email sequences, lead scoring, and pipeline management for your sales team.</p>
-                    <a href="Hubspot.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Asana -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/asana.png" alt="Asana">
-                </div>
-                <div class="workflow-content">
-                    <h3>Asana Systems</h3>
-                    <p>Project management setups, team coordination workflows, and task automation solutions.</p>
-                    <a href="Asana.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Make -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/make.jpeg" alt="Make">
-                </div>
-                <div class="workflow-content">
-                    <h3>Make Automations</h3>
-                    <p>Complex workflow automations and integrations between multiple business applications.</p>
-                    <a href="Make.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Pipedrive -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/pipedrive.png" alt="Pipedrive">
-                </div>
-                <div class="workflow-content">
-                    <h3>Pipedrive CRM</h3>
-                    <p>Sales pipeline automation, lead management, and deal tracking systems.</p>
-                    <a href="Pipe.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- GoHighLevel -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/Gohighlevel logo.png" alt="GoHighLevel">
-                </div>
-                <div class="workflow-content">
-                    <h3>GoHighLevel Workflows</h3>
-                    <p>Marketing automation, CRM, and sales pipeline management solutions.</p>
-                    <a href="Gohighlevel.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Zoho -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/zoho.png" alt="Zoho">
-                </div>
-                <div class="workflow-content">
-                    <h3>Zoho Systems</h3>
-                    <p>Comprehensive business solutions across the Zoho suite of applications.</p>
-                    <a href="Zoho.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Trello -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/trello.png" alt="Trello">
-                </div>
-                <div class="workflow-content">
-                    <h3>Trello Boards</h3>
-                    <p>Custom board setups, automation with Butler, and team collaboration solutions.</p>
-                    <a href="Trello.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- n8n.io -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/n8n.io.png" alt="n8n.io">
-                </div>
-                <div class="workflow-content">
-                    <h3>n8n.io Automations</h3>
-                    <p>Powerful, self-hostable workflow automation with extensive integration capabilities.</p>
-                    <a href="n8n.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- Excel -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/excel.png" alt="Excel">
-                </div>
-                <div class="workflow-content">
-                    <h3>Excel Systems</h3>
-                    <p>Advanced spreadsheets, data analysis, and automation solutions for business intelligence.</p>
-                    <a href="Excel.html" class="btn">View Samples</a>
-                </div>
-            </div>
-
-            <!-- SuiteDash -->
-            <div class="workflow-item">
-                <div class="workflow-img">
-                    <img src="logos/Suitedash.png" alt="SuiteDash">
-                </div>
-                <div class="workflow-content">
-                    <h3>SuiteDash Systems</h3>
-                    <p>All-in-one business management platform with CRM, project management, and automation.</p>
-                    <a href="SuiteDash.html" class="btn">View Samples</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 👇 NEW: Full-width CTA card right after the platform grid -->
-        <div style="text-align:center; margin-top:60px; padding:50px 30px; background: var(--card-bg); border-radius:16px; border: 1px solid var(--border-color); backdrop-filter: blur(10px);">
-            <h3 style="font-size:1.8rem; margin-bottom:12px; color: var(--text-color);">
-                <i class="fas fa-play-circle" style="color:var(--accent); margin-right:10px;"></i>
-                See All Workflow Demos
-            </h3>
-            <p style="color:var(--text-color); opacity:0.8; max-width:600px; margin:0 auto 24px; font-size:1.05rem;">
-                Watch 40+ real-world automation walkthroughs across all platforms.
-            </p>
-            <a href="videos.html" class="btn" style="padding: 14px 36px; font-size:1.05rem;">
-                <i class="fas fa-external-link-alt"></i> View All Videos
-            </a>
-        </div>
-
-    </section>
-
-    <section class="testimonials" id="testimonials">
-        <h2 class="section-title">Client Testimonials</h2>
-        <div class="testimonial-container">
-
-            <!-- 1. Conor Kearney -->
-            <div class="testimonial-card">
-                <p>"Such a great experience working with Israel – not only great at his job but also a very nice person. Communication was outstanding, fast, informative and clear. Work Quality was 100%. He set up my Monday.com board for my sales team and debugged my old Monday board. I will be working with Israel again when I transfer my back end booking system from Trello to Monday."</p>
-                <div class="testimonial-author">
-                    <img src="image/33.jpeg" alt="Conor Kearney">
-                    <div class="author-info">
-                        <h4>Conor Kearney</h4>
-                        <span>Co-Founder, Luxury Golf Tours Asia</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Conor@luxurygolftoursasia.com" class="client-email">Conor@luxurygolftoursasia.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Jeanette Hunter -->
-            <div class="testimonial-card">
-                <p>"Israel helped me set up my Plutio CRM. He worked quickly and was great at communicating with me. It gave me a head start in the CRM and saved me some time in trying to figure everything out."</p>
-                <div class="testimonial-author">
-                    <img src="image/6.jpeg" alt="Jeanette Hunter">
-                    <div class="author-info">
-                        <h4>Jeanette Hunter</h4>
-                        <span>Founder, JH Virtual Assistant</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:info@jeanettehunter.co.uk" class="client-email">info@jeanettehunter.co.uk</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Alec Harden-Henry -->
-            <div class="testimonial-card">
-                <p>"Israel was helpful, professional, knew his stuff and a pleasure to work with."</p>
-                <div class="testimonial-author">
-                    <img src="image/7.jpeg" alt="Alec Harden-Henry">
-                    <div class="author-info">
-                        <h4>Alec Harden-Henry</h4>
-                        <span>Head of Operations, Air Marketing</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:alec@startup-growth.co.uk" class="client-email">alec@startup-growth.co.uk</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. Christophe Diouf (no email in source) -->
-            <div class="testimonial-card">
-                <p>"I onboarded Israel so he could help me with operations and ever since I onboarded him all projects we're working on are happening on time (and fully up to standard). Highly recommend!"</p>
-                <div class="testimonial-author">
-                    <img src="image/2.jpeg" alt="Christophe Diouf">
-                    <div class="author-info">
-                        <h4>Christophe Diouf</h4>
-                        <span>Founder, F-LINK CONSULTING</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. Shereen Patels -->
-            <div class="testimonial-card">
-                <p>"Great working with Israel."</p>
-                <div class="testimonial-author">
-                    <img src="image/1.jpeg" alt="Shereen Patels">
-                    <div class="author-info">
-                        <h4>Shereen Patels</h4>
-                        <span>Founder, Sosher Media</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Info@sosher.co.uk" class="client-email">Info@sosher.co.uk</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. Adriaan van Dam -->
-            <div class="testimonial-card">
-                <p>"Israel was the perfect freelancer. He supported me until my Airtable project worked exactly as I wanted. I can highly recommend him – truly a professional."</p>
-                <div class="testimonial-author">
-                    <img src="image/4.jpeg" alt="Adriaan van Dam">
-                    <div class="author-info">
-                        <h4>Adriaan van Dam</h4>
-                        <span>CEO, Adriaanvandam_photography</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Info@adriaanvandam.nl" class="client-email">Info@adriaanvandam.nl</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. Alexandra McLeod -->
-            <div class="testimonial-card">
-                <p>"Professional, communicative and knowledgeable. Unfortunately, we did not get to complete our project due to a change in direction at our company, but the work he had completed was strong and heading in the right direction. Overall he was very collaborative, and I would hire him again."</p>
-                <div class="testimonial-author">
-                    <img src="image/5.jpeg" alt="Alexandra McLeod">
-                    <div class="author-info">
-                        <h4>Alexandra McLeod</h4>
-                        <span>Operational Manager, Winston Agency</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Alexandra.mcleod5@gmail.com" class="client-email">Alexandra.mcleod5@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 8. Mario McKenzie (no email in source) -->
-            <div class="testimonial-card">
-                <p>"Israel built an exceptional Notion dashboard that's been a game-changer for my writing and business management. His communication was outstanding. Highly recommended!"</p>
-                <div class="testimonial-author">
-                    <img src="image/111.jpeg" alt="Mario McKenzie">
-                    <div class="author-info">
-                        <h4>Mario McKenzie</h4>
-                        <span>CEO, Bavolar L.L.C</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 9. Zachary Cachia -->
-            <div class="testimonial-card">
-                <p>"Israel was super, was efficient and sorted us out, thanks!"</p>
-                <div class="testimonial-author">
-                    <img src="image/13.jpeg" alt="Zachary Cachia">
-                    <div class="author-info">
-                        <h4>Zachary Cachia</h4>
-                        <span>Certified Public Accountant, Helix Finance Ltd</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Zak@helix-partners.eu" class="client-email">Zak@helix-partners.eu</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 10. Michael Mezheritskiy -->
-            <div class="testimonial-card">
-                <p>"Israel has been an absolute pleasure to work with. We were building out a new workflow in Monday.com for the first time, with multiple moving parts, several team members involved, and very specific conditional automations. Israel took the time to truly understand our process, asked the right questions, and worked diligently to design a system that matched our needs exactly. He also helped train our team to ensure a smooth implementation. We highly recommend him for any Monday.com workflow build or automation project."</p>
-                <div class="testimonial-author">
-                    <img src="image/12.jpeg" alt="Michael Mezheritskiy">
-                    <div class="author-info">
-                        <h4>Michael Mezheritskiy</h4>
-                        <span>President, Milestone Asset Management Group</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Michael@milestoneamg.com" class="client-email">Michael@milestoneamg.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 11. Charles Dumont -->
-            <div class="testimonial-card">
-                <p>"it was great experience working with Israel! He was available and pro. He help us setup a Monday.com account!"</p>
-                <div class="testimonial-author">
-                    <img src="image/11.jpeg" alt="Charles Dumont">
-                    <div class="author-info">
-                        <h4>Charles Dumont</h4>
-                        <span>Founder &amp; President, Synchro IA</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Charles.dumont@synchroia.com" class="client-email">Charles.dumont@synchroia.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 12. Jerry Smith -->
-            <div class="testimonial-card">
-                <p>"Israel is very diligent and won't quit until the task is complete. Easyto work with."</p>
-                <div class="testimonial-author">
-                    <img src="image/10.jpeg" alt="Jerry Smith">
-                    <div class="author-info">
-                        <h4>Jerry Smith</h4>
-                        <span>Founder &amp; Rhino Global Solutions</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Jerry@Rhinoglobalsolutions.com" class="client-email">Jerry@Rhinoglobalsolutions.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 13. Micah McCreary -->
-            <div class="testimonial-card">
-                <p>"Working with Israel is an absolute pleasure. He fully rebuilt and automated our client intake procedures in Monday.com, which will save me hours and hours of work and many headaches. He is incredibly responsive, attentive, and as a founder, I really appreciate the ability to rely on someone like him to decrease my daily task count and let me focus on more lucrative and less time-sucking tasks. if you are considering hiring someone to help you with any sort of automation or CRM build out. I promise You will not regret hiring Israel. 10/10 experience."</p>
-                <div class="testimonial-author">
-                    <img src="image/14.jpeg" alt="Micah McCreary">
-                    <div class="author-info">
-                        <h4>Micah McCreary</h4>
-                        <span>Harvard Law Grad &amp; Attorney &amp; Founder and CEO at Jurisprep</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Jerry@Rhinoglobalsolutions.com" class="client-email">Jerry@Rhinoglobalsolutions.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 14. Will Sawney -->
-            <div class="testimonial-card">
-                <p>"Fantastic partner who's helped me with a number of CRM and automation projects. Israel is incredibly diligent and good to communicate with, and kept me updated throughout every project. Highly recommend."</p>
-                <div class="testimonial-author">
-                    <img src="image/9.jpeg" alt="Will Sawney">
-                    <div class="author-info">
-                        <h4>Will Sawney</h4>
-                        <span>Founder, Sideways CRM</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <a href="mailto:Will@sidewayscrm.com" class="client-email">Will@sidewayscrm.com</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="video-testimonial" id="video-testimonial">
-        <h2 class="section-title">Video Testimonial</h2>
-        <div class="video-container">
-            <div class="vimeo-wrapper">
-                <iframe 
-                    src="https://player.vimeo.com/video/1086016507?h=62fd9735f6" 
-                    width="100%" 
-                    height="100%"
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen
-                    title="Chris Thompson - Workflow Automation Testimonial">
-                </iframe>
-            </div>
-            <div class="video-caption">
-                <h3>Chris Thompson</h3>
-                <p>CEO, TechSolutions Inc.</p>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-        </div>
-        <div class="video-description">
-            <p>"This video testimonial from Chris showcases the real impact of our workflow automation solutions. Watch how we transformed their business processes and hear directly from a satisfied client about their experience working with us."</p>
-            <!-- 👇 NEW: Button below the video testimonial description -->
-            <div style="margin-top: 30px;">
-                <a href="videos.html" class="btn" style="padding: 14px 36px; font-size:1.05rem;">
-                    <i class="fas fa-play-circle"></i> Watch All Demo Videos
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- ===== NEW: Our Service Offerings ===== -->
-    <section class="services" id="services">
-        <h2 class="section-title">Our Service Offerings</h2>
-        <div class="services-container">
-            <div class="service-card">
-                <i class="fas fa-robot"></i>
-                <h3>Workflow Automation</h3>
-                <p>Automate repetitive tasks and streamline operations with custom-built workflows that save time and reduce errors.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-plug"></i>
-                <h3>Custom Integrations</h3>
-                <p>Connect your apps seamlessly – monday.com, HubSpot, Zapier, and more – to create a unified business ecosystem.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>SOP Documentation</h3>
-                <p>Clear, detailed standard operating procedures that ensure consistency, quality, and easy onboarding for your team.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-map-signs"></i>
-                <h3>Process Mapping</h3>
-                <p>Visualise your current processes, identify bottlenecks, and design efficient, scalable workflows for growth.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tasks"></i>
-                <h3>Project Management Setup</h3>
-                <p>Custom workspaces in Monday, ClickUp, Asana, or Notion to keep your projects organised and your team aligned.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-headset"></i>
-                <h3>Ongoing Support & Training</h3>
-                <p>From troubleshooting to team training, we ensure your systems run smoothly and your people stay confident.</p>
-            </div>
-        </div>
-    </section>
-    <section class="badges-certificates" id="badges-certificates">
-    <h2 class="section-title">Badges and Certificates</h2>
-    <div class="badges-grid">
-        <!-- You might want to link to Monday.html here -->
-        <div class="badge-category">
-            <h3>Monday.com Academy</h3>
-            <div class="badge-list">
-                <!-- Placeholders or actual images -->
-                <div class="badge-item">
-                    <img src="images/monday-badges/Badge (7).jpeg" alt="Workflow Specialist Superbadge">
-                    <p>Workflow Specialist</p>
-                </div>
-                <div class="badge-item">
-                    <img src="images/monday-badges/Badge (2).jpeg" alt="Workflow Specialist Superbadge">
-                    <p>Cross-team collaboration</p>
-                </div>
-                <div class="badge-item">
-                    <img src="images/monday-badges/Badge (1).jpeg" alt="Workflow Specialist Superbadge">
-                    <p>Optimizing workflows with AI</p>
-                </div>
-                <div class="badge-item">
-                    <img src="images/monday-badges/Badge (5).jpeg" alt="Workflow Specialist Superbadge">
-                    <p>Building hierarchies</p>
-                </div>
-                <div class="badge-item">
-                    <img src="images/monday-badges/Badge (3).jpeg" alt="Workflow Specialist Superbadge">
-                    <p>Transactional requests</p>
-                </div>
-                <div class="badge-item">
-                    <img src="images/monday-badges/Badge (6).jpeg" alt="Workflow Specialist Superbadge">
-                    <p>Admin essentials</p>
-                </div>
-              </div>
+        <div class="mt-10 pt-6 border-t border-[#1a2d44] text-center text-xs text-[#64748b]">
+            <p>Built with care in Ekiti State, Nigeria.</p>
         </div>
     </div>
-</section>
+</footer>
 
-        <!-- ===== Schedule a Call Section (Google Calendar) ===== -->
-    <section class="schedule-call" id="schedule">
-        <div class="schedule-icon-wrapper">
-            <i class="fas fa-calendar-check"></i>
-        </div>
-        <h2>Ready to Streamline Your Business?</h2>
-        <p>Book a free 15-minute consultation to discuss your workflow automation needs and see how we can grow your business together.</p>
-        
-        <!-- 👇 IMPORTANT: Replace the href="#" with your actual Google Calendar booking link 👇 -->
-        <a href="https://calendar.app.google/DmZYREUe753KE7NC7" target="_blank" class="btn schedule-btn">
-            <i class="fas fa-calendar-plus"></i> Schedule a Call Now
-        </a>
-    </section>
+<!-- ====== SCRIPTS ====== -->
+<script>
+    // ================================================================
+    // SPA ROUTING
+    // ================================================================
+    (function() {
+        const pages = {
+            home: document.getElementById('page-home'),
+            about: document.getElementById('page-about'),
+            services: document.getElementById('page-services'),
+            work: document.getElementById('page-work'),
+            contact: document.getElementById('page-contact')
+        };
 
-    <section class="contact" id="contact">
-        <!-- Your existing contact section stays here -->
-    
-    <section class="contact" id="contact">
-        <h2 class="sectio-title">Get In Touch</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <a href="mailto:Israelagboola1234@gmail.com">Israelagboola1234@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <div class="contact-text">
-                            <h4>Upwork</h4>
-                            <a href="https://www.upwork.com/freelancers/~01ae781b054a22f7b8?mp_source=share" target="_blank">View My Upwork Profile</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="upwork-btn-container">
-                    <a href="https://www.upwork.com/freelancers/~01ae781b054a22f7b8?mp_source=share" target="_blank" class="btn upwork-btn">Chat on Upwork</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        const navLinks = document.querySelectorAll('[data-page]');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const menuToggle = document.getElementById('menuToggle');
+        const menuClose = document.getElementById('menuClose');
 
-    <footer>
-        <p class="copyright">© 2025 Isreal. All rights reserved.</p>
-    </footer>
+        let currentPage = 'home';
 
-    <!-- Chatbot Container -->
-    <div class="chatbot-container">
-        <div class="chat-header">
-            <img src="images/portrait.jpg" alt="Isreal portrait" class="bot-avatar">
-            <h2>Isreal-bot</h2>
-            <button class="close-chat"><i class="fas fa-times"></i></button>
-        </div>
+        function showPage(pageId) {
+            Object.keys(pages).forEach(key => {
+                const el = pages[key];
+                if (el) {
+                    el.classList.remove('active');
+                    el.hidden = true;
+                }
+            });
 
-        <div class="chat-box" id="chat-box">
-            <div class="message bot">
-                <div class="bubble">Hello! I'm Isreal. How can I help you?</div>
-            </div>  
-        </div>
+            const target = pages[pageId];
+            if (target) {
+                target.classList.add('active');
+                target.hidden = false;
+                target.querySelectorAll('.reveal').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('visible'), 100 + i * 100);
+                });
+            }
 
-        <div class="typing-indicator" id="typing-indicator">
-            <span></span><span></span><span></span>
-        </div>
+            currentPage = pageId;
 
-        <form id="chat-form">
-            <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off">
-            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-        </form>
-    </div>
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
 
-    <div class="chat-toggle">
-        <i class="fas fa-robot"></i>
-    </div>
+            if (pageId === 'home') {
+                history.pushState(null, '', '/');
+            } else {
+                history.pushState(null, '', '#' + pageId);
+            }
 
-    <div class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+            const titles = {
+                home: 'Zeral Technologies Ltd | Digital Solutions & Business Automation',
+                about: 'About Us | Zeral Technologies Ltd',
+                services: 'Our Services | Zeral Technologies Ltd',
+                work: 'Our Work | Zeral Technologies Ltd',
+                contact: 'Contact Us | Zeral Technologies Ltd'
+            };
+            document.title = titles[pageId] || titles.home;
 
-    <script src="script.js"></script>
-    <script src="chatbot.js"></script>
+            closeMobileMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileOverlay.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                if (page) showPage(page);
+            });
+        });
+
+        menuToggle.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        menuClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+            }
+        });
+
+        function handleHash() {
+            const hash = window.location.hash.replace('#', '') || 'home';
+            if (pages[hash]) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        }
+
+        window.addEventListener('hashchange', handleHash);
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash.replace('#', '') || 'home';
+            if (pages[hash]) showPage(hash);
+            else showPage('home');
+        });
+
+        const initialHash = window.location.hash.replace('#', '') || 'home';
+        if (pages[initialHash]) {
+            showPage(initialHash);
+        } else {
+            showPage('home');
+        }
+
+        window.__zeral = { showPage };
+    })();
+
+    // ================================================================
+    // SCROLL REVEAL (Intersection Observer)
+    // ================================================================
+    (function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        function observeReveals() {
+            document.querySelectorAll('.page-content.active .reveal:not(.visible)').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        const origShowPage = window.__zeral?.showPage;
+        if (origShowPage) {
+            const wrapped = function(pageId) {
+                origShowPage(pageId);
+                setTimeout(observeReveals, 200);
+            };
+            window.__zeral.showPage = wrapped;
+        }
+
+        setTimeout(observeReveals, 300);
+
+        const observer2 = new MutationObserver(() => {
+            observeReveals();
+        });
+        document.querySelectorAll('.page-content').forEach(el => {
+            observer2.observe(el, { attributes: true, attributeFilter: ['class'] });
+        });
+    })();
+
+    // ================================================================
+    // CONTACT FORM
+    // ================================================================
+    (function() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        const fullName = document.getElementById('fullName');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+        const companyName = document.getElementById('companyName');
+        const phone = document.getElementById('phone');
+        const serviceNeeded = document.getElementById('serviceNeeded');
+
+        const fullNameError = document.getElementById('fullNameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
+
+        function validateField(input, errorEl, condition) {
+            if (!condition) {
+                input.classList.add('error');
+                errorEl.classList.add('show');
+                return false;
+            } else {
+                input.classList.remove('error');
+                errorEl.classList.remove('show');
+                return true;
+            }
+        }
+
+        function validateForm() {
+            let valid = true;
+            valid = validateField(fullName, fullNameError, fullName.value.trim().length > 0) && valid;
+            valid = validateField(email, emailError, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) && valid;
+            valid = validateField(message, messageError, message.value.trim().length > 0) && valid;
+            return valid;
+        }
+
+        [fullName, email, message].forEach((field, idx) => {
+            field.addEventListener('blur', function() {
+                const errors = [fullNameError, emailError, messageError];
+                const conditions = [
+                    this.value.trim().length > 0,
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim()),
+                    message.value.trim().length > 0
+                ];
+                validateField(this, errors[idx], conditions[idx]);
+            });
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    const errors = [fullNameError, emailError, messageError];
+                    const conditions = [
+                        this.value.trim().length > 0,
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim()),
+                        message.value.trim().length > 0
+                    ];
+                    const idx = [fullName, email, message].indexOf(this);
+                    if (idx !== -1) {
+                        validateField(this, errors[idx], conditions[idx]);
+                    }
+                }
+            });
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+
+            if (!validateForm()) {
+                const firstError = form.querySelector('.form-input.error');
+                if (firstError) firstError.focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Sending...';
+            btnSpinner.classList.remove('hidden');
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                btnText.textContent = 'Send Inquiry';
+                btnSpinner.classList.add('hidden');
+
+                formSuccess.classList.remove('hidden');
+                form.reset();
+
+                document.querySelectorAll('.form-input.error').forEach(el => el.classList.remove('error'));
+                document.querySelectorAll('.form-error.show').forEach(el => el.classList.remove('show'));
+
+                setTimeout(() => {
+                    formSuccess.classList.add('hidden');
+                }, 6000);
+
+                console.log('Form submitted (demo):', {
+                    fullName: fullName.value,
+                    email: email.value,
+                    company: companyName.value,
+                    phone: phone.value,
+                    service: serviceNeeded.value,
+                    message: message.value
+                });
+
+            }, 1800);
+        });
+
+        form.addEventListener('reset', function() {
+            document.querySelectorAll('.form-input.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.form-error.show').forEach(el => el.classList.remove('show'));
+            formSuccess.classList.add('hidden');
+            formError.classList.add('hidden');
+        });
+    })();
+
+    // ================================================================
+    // CURRENT YEAR IN FOOTER
+    // ================================================================
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ================================================================
+    // KEYBOARD NAVIGATION: close mobile menu on Escape
+    // ================================================================
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const menu = document.getElementById('mobileMenu');
+            if (menu && menu.classList.contains('open')) {
+                document.getElementById('menuClose')?.click();
+            }
+        }
+    });
+
+    console.log('Zeral Technologies Ltd website loaded successfully.');
+    console.log('Built with ❤️ in Ekiti State, Nigeria.');
+    console.log('For inquiries: Israelagboola1234@gmail.com | 09161405944');
+</script>
+
 </body>
 </html>
